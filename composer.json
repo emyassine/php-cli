@@ -12,7 +12,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"EMYassine\\": "src/"
-		}
+			"PhpCli\\": "codebase/"
+		},
+		"files": []
 	}
 }
