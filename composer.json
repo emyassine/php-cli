@@ -1,13 +1,13 @@
 {
 	"name": "emyassine/php-cli",
 	"description": "Simple PHP CLI",
-	"type": "project",
+	"type": "library",
+	"version": "1.0",
 	"require": {
 		"php": ">=8.4"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^10.0",
-		"emyassine/php-cli": "^1.0"
+		"phpunit/phpunit": "^10.0"
 	},
 	"autoload": {
 		"psr-4": {
