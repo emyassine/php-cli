@@ -1,13 +1,14 @@
 <?php declare(strict_types=1);
 namespace EMYassine;
 
-// --- Preparation --------------------------------------------------
+/** ------------------------------------------------------------------------
+ *  Good to know: PHP has a $argv built-in variable
+ *  ------------------------------------------------------------------------
+ *  It is a predefined variable that contains an array of all the arguments
+ *  passed to a script when it is executed from the command line (CLI).
+ */
 
-if (!PHP_SAPI === "cli") {
-    die("This script must be run from the command line.");
-    // Good to know: PHP has a $argv built-in variable. It is a predefined variable that contains
-    // an array of all the arguments passed to a script when it is executed from the command line (CLI).
-}
+if (!PHP_SAPI === "cli") { die("This script must be run from the command line."); }
 
 // --- Definitions --------------------------------------------------
 
@@ -27,14 +28,16 @@ define("AUTHORIZED_COMMANDS", [
 
 class PHPCli
 {
-    function __invoke(): mixed
+	private string $base_path = '';
+
+	/**
+	 * @return void
+	 */
+    function __invoke(string $base_path /*, string $output_file*/): void
     {
-        return $this->cmd_response();
+        $this->base_path = $base_path;
+        $this->cmd_response();
     }
-
-    //public $base_path = (string) '';
-
-
 
     // --- Initialization --------------------------------------------------
 
