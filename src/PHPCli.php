@@ -29,7 +29,7 @@ class PHPCli
 {
     function __invoke(): mixed
     {
-        return cmd_response();
+        return $this->cmd_response();
     }
 
     //public $base_path = (string) '';
@@ -46,7 +46,7 @@ class PHPCli
     /**
      * @param string $command
      * @return string */
-    function cmd_not_found($command): string
+    private function cmd_not_found($command): string
     {
         return "Unknown command: $command\n";
     }
