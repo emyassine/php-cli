@@ -1,0 +1,17 @@
+{
+	"name": "emyassine/php-cli",
+	"description": "Simple PHP CLI",
+	"type": "project",
+	"require": {
+		"php": ">=8.4"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10.0",
+		"emyassine/php-cli": "^1.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"EMYassine\\": "src/"
+		}
+	}
+}
