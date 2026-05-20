@@ -3,7 +3,7 @@ namespace EMYassine;
 
 // --- Preparation --------------------------------------------------
 
-if (PHP_SAPI === "cli") {
+if (!PHP_SAPI === "cli") {
     die("This script must be run from the command line.");
     // Good to know: PHP has a $argv built-in variable. It is a predefined variable that contains
     // an array of all the arguments passed to a script when it is executed from the command line (CLI).
