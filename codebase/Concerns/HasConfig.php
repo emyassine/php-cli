@@ -1,10 +1,16 @@
 <?php declare(strict_types=1);
-namespace PhpCli;
+namespace PhpCli\Concerns;
 
-class Config {
+trait HasConfig
+{
+	public function config_path(string $base_path):void {
 
-	public function __construct(public string $base_path) {
-		print "Basepath is $base_path\n";
+		$initial_config_file = "$base_path/configuration/cli-paths.php";
+		if(file_exists($initial_config_file))
+		{echo "Config File is there: " . $initial_config_file; }
+		else
+		{echo "NO CONFIG FILE\n"; };
+
 	}
 
 	/** @return void */
@@ -12,8 +18,8 @@ class Config {
 
 	/** @return void @param $key @param $default_value */
 	public function get_config_from_file():void {}
+}
 
-};
 
 
 // --- Definitions --------------------------------------------------
