@@ -3,6 +3,7 @@ namespace PhpCli;
 class LaunchConsole {
 
 	use Concerns\HasConfig;
+	use Concerns\HasCommands;
 
 	private array $authorized_commands = [];
 
