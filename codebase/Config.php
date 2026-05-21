@@ -6,14 +6,31 @@ namespace PhpCli;
  *  passed to a script when it is executed from the command line (CLI).  */
  if (!PHP_SAPI === "cli") { \die("This script must be run from the command line."); }
 
-$config_class = new class {
- function __construct()
- {
- }
+class Config {
+
+	public function __construct(
+
+		public string $base_path,
+		public string $config_path
+
+		)
+		{
+			$this->base_path = $base_path;
+			$this->$config_path = $config_path;
+		}
+
+	/** @return void */
+	public function dot_notation():void{}
+
+	/** @return void @param $key @param $default_value */
+	public function get_config_from_file($key, $default_value):void {}
+
 };
 
 // --- Global Functions --------------------------------------------------
-function config($key, $default_value) {}
+function cli_config($key, $default_value) {
+	return $config_class::get_config_from_file($key, $default_value);
+}
 
 // --- Definitions --------------------------------------------------
 define("AUTHORIZED_COMMANDS", [
@@ -30,12 +47,13 @@ define("AUTHORIZED_COMMANDS", [
 ]);
 
 // --- OOP --------------------------------------------------
-class Console
+$launch_console = new class
 {
-	use Traits\HasTrait;
+	use Concerns\HasTrait;
 
 	private string $base_path;
-	private string $config_path;
+
+	private array $authorized_commands;
 
 
 		//public $output_file = (string) '';
@@ -44,14 +62,14 @@ class Console
 	    //public $commands_files = (array) [];
 
 
-		/**
-		 * @return void
-		 */
-		function handle(string $base_path):void
-		{
-			$this->base_path = $base_path;
-			$this->cmd_response();
-		}
+	/**
+	 * @return void
+	 */
+	function handle(string $base_path):void
+	{
+		$this->base_path = $base_path;
+		$this->cmd_response();
+	}
 
     // --- Initialization --------------------------------------------------
 
@@ -75,6 +93,23 @@ class Console
             echo $argv[1];
         }
     }
+};
+
+// --- Pre-Result ----------------------------------------------
+
+class Console {
+
+	/**
+	 * @return void
+	 */
+	function handle(string $base_path):void
+	{
+		global $launch_console;
+
+		//$this->base_path = $base_path;
+		//$launch_console::cmd_response();
+	}
+
 }
 
 // --- Result --------------------------------------------------
