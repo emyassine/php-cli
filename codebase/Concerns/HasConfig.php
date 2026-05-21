@@ -3,7 +3,7 @@ namespace PhpCli\Concerns;
 
 trait HasConfig
 {
-	public function config_path(string $base_path):void {
+	public function config_basepath(string $base_path):void {
 
 		$initial_config_file = "$base_path/configuration/cli-paths.php";
 		if(\file_exists($initial_config_file))

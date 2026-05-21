@@ -8,7 +8,7 @@ class LaunchConsole {
 	/**
 	 * @return void
 	 */
-	function __construct(public string $base_path)
+	function __construct(public ?string $base_path)
 	{
 		$this->base_path = $base_path;
 		$this->config_path($base_path);
