@@ -1,8 +1,7 @@
 <?php declare(strict_types=1);
 namespace PhpCli;
-
 class LaunchConsole {
-	use Concerns\HasTrait;
+
 	use Concerns\HasConfig;
 
 	private array $authorized_commands = [];
