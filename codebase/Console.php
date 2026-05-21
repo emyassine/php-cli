@@ -7,11 +7,15 @@ namespace PhpCli {
 	define("PHPCLI_VERSION", "0.1.1"); define("PHPCLI_YEAR", "2026");
 	/** */
 	class Console {
-		use Concerns\HasConfig, Concerns\HasCommands;
+		use Concerns\HasConfig, Concerns\HasCommands, Concerns\CanRespond;
 		/** @return void */
-		function __construct(public string $base_path) {
-			$this->config_basepath($base_path);
-			$this->cmd_response($this->get_config_from_file() ?? []);
+		function __construct(public string $base_path) {}
+
+		public function run(): self {
+			// var_dump($this);
+			$this->commands($this->commands_path);
+			$this->cmd_response([]);
+			return $this;
 		}
 	}
 };
