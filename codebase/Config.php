@@ -8,16 +8,11 @@ namespace PhpCli;
 
 class Config {
 
-	public function __construct(
-
-		public string $base_path,
-		public string $config_path
-
-		)
-		{
-			$this->base_path = $base_path;
-			$this->$config_path = $config_path;
-		}
+	public function __construct(public string $base_path,
+								public string $config_path){
+		$this->base_path = $base_path;
+		$this->config_path = $config_path;
+	}
 
 	/** @return void */
 	public function dot_notation():void{}

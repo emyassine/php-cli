@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PhpCli\Traits;
+namespace PhpCli\Concerns;
 
 trait HasTrait
 {
