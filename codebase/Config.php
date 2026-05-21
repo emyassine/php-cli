@@ -1,17 +1,14 @@
 <?php declare(strict_types=1);
 namespace PhpCli;
 
-/** Good to know: PHP has a $argv built-in variable
- *  It is a predefined variable that contains an array of all the arguments
- *  passed to a script when it is executed from the command line (CLI).  */
- if (!PHP_SAPI === "cli") { \die("This script must be run from the command line."); }
-
 class Config {
+	public string $config_path;
+	public string $base_path;
 
-	public function __construct(public string $base_path,
-								public string $config_path){
+	function handle(string $base_path):void
+	{
 		$this->base_path = $base_path;
-		$this->config_path = $config_path;
+		$this->config_path = "$base_path/configuration";
 	}
 
 	/** @return void */
