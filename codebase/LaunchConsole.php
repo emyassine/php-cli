@@ -5,7 +5,6 @@ class LaunchConsole {
 	use Concerns\HasTrait;
 	use Concerns\HasConfig;
 
-	public string $base_path;
 	private array $authorized_commands = [];
 
 	//public $output_file = (string) '';
@@ -16,7 +15,7 @@ class LaunchConsole {
 	/**
 	 * @return void
 	 */
-	function handle(string $base_path):void
+	function __construct(public string $base_path)
 	{
 		$this->base_path = $base_path;
 		$this->config_path($base_path);

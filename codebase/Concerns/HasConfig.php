@@ -6,7 +6,7 @@ trait HasConfig
 	public function config_path(string $base_path):void {
 
 		$initial_config_file = "$base_path/configuration/cli-paths.php";
-		if(file_exists($initial_config_file))
+		if(\file_exists($initial_config_file))
 		{echo "Config File is there: " . $initial_config_file; }
 		else
 		{echo "NO CONFIG FILE\n"; };
