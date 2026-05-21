@@ -6,10 +6,6 @@ namespace PhpCli;
  *  passed to a script when it is executed from the command line (CLI).  */
  if (!PHP_SAPI === "cli") { \die("This script must be run from the command line."); }
 
-// foreach (glob(__DIR__ . "/traits/*.php", GLOB_NOSORT) as $filename) {
-//     echo "$filename\n";
-// }
-
 $config_class = new class {
  function __construct()
  {
